@@ -1,0 +1,24 @@
+{
+  "name": "pass.in",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx watch --env-file .env src/server.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.12.3",
+    "prisma": "^5.12.0",
+    "tsx": "^4.7.1",
+    "typescript": "^5.4.3"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.12.0",
+    "fastify": "^4.26.2",
+    "fastify-type-provider-zod": "^1.1.9",
+    "zod": "^3.22.4"
+  }
+}
