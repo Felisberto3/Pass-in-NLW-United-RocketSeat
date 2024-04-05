@@ -17,9 +17,9 @@ export async function registerForEvent(app: FastifyInstance) {
                     eventId: z.string().uuid()
                 }),
                 response: {
-                    201: {
+                    201: z.object({
                         attendeeId: z.number()
-                    }
+                    })
                 }
             }
         }, async (request, reply) => {
@@ -48,16 +48,14 @@ export async function registerForEvent(app: FastifyInstance) {
                 }),
                 prisma.attendee.count({
                     where: {
-                        eventId, 
+                        eventId,
                     }
                 })
 
             ])
 
 
-            console.log(event, amountOfAttendeesForEvent,'=============');
-            
-            
+
             if (amountOfAttendeesForEvent >= event?.maximumAttendees!) {
                 throw new Error("Event is full ");
             }
